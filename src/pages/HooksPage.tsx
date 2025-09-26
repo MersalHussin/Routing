@@ -10,8 +10,14 @@ import { useEffect, useState } from "react";
 const HooksPage = () => {
     const [counter, setcounter] = useState(0);
     useEffect(() => {
-        console.log("from useEffect Hook <3");
+           fetch('https://dummyjson.com/products')
+        .then(res => res.json())
+        .then(data =>console.log(data));
     } ,[])
+    
+    useEffect(() => {
+        console.log("from useEffect Hook <3");
+    } ,[counter])
     return (
         <div>
             <h2>Counter: {counter}</h2>
