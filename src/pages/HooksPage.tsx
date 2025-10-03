@@ -8,20 +8,38 @@ import { useEffect, useState } from "react";
 // ولو مش عاوز حاجه تسمع بحطها في Use Effect تانية زي الـ API مثلًا
 
 const HooksPage = () => {
-    const [counter, setcounter] = useState(0);
-    useEffect(() => {
-           fetch('https://dummyjson.com/products')
-        .then(res => res.json())
-        .then(data =>console.log(data));
-    } ,[])
+    const [products, setproducts] = useState([]);
     
     useEffect(() => {
+        const controller = new AbortController
+        const signal = controller.signal
         console.log("from useEffect Hook <3");
-    } ,[counter])
+        const fetchProducts = async() =>{
+            try{
+                // بفرق بين الـ ريكويستيت وبعدها بـ الـ سيجنال
+       await fetch('https://dummyjson.com/products' , {signal})
+        .then(res => res.json())
+        .then(data => setproducts(data.products));
+            } catch(erorr){
+                console.log(erorr);
+                console.log("Just Error");
+            }
+        }
+
+        fetchProducts();
+
+        return() => {
+            controller.abort()
+        }
+    } ,[])
     return (
         <div>
-            <h2>Counter: {counter}</h2>
-            <button onClick={() => setcounter(prev => prev + 1)}>Icrease Count</button>
+            <h2>UseEffect Hook</h2>
+{products.length
+  ? products.map((product: { id: number; title: string }) => (
+      <p key={product.id}>{product.title}</p>
+    ))
+  : null}
         </div>
     );
 }

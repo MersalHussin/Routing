@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 
-const NavBar = ({setPage}: {setPage:(page:"about" | "home" | "products" | "useEffect") => void}) => {
+const NavBar = () => {
     return (
         <div>
             <ul className="flex items-center justify-center gap-2">
-                <li> <a onClick={() => setPage("home")} href="#">Home</a></li>
-                <li> <a onClick={() => setPage("about")} href="#">Aboutus</a></li>
-                <li> <a onClick={() => setPage("products")} href="#">Products</a></li>
-                <li> <a onClick={() => setPage("useEffect")} href="#">UseEffect</a></li>
+                <li> <Link to="/">Home</Link></li>
+                <li> <Link to="about">About us</Link></li>
+                <li> <Link to="team">Team</Link></li>
+                <li> <Link to="Contact">Contact</Link></li>
             </ul>
         </div>
     );
