@@ -13,7 +13,7 @@ const router = createBrowserRouter(
 <>
 
       {/* Root Layout */}
-      {/* الـv,,j ]i */}
+      {/* الـRoot ده معناه اي حاجه بعد / هيتبق عليها الـ RootLayout */}
       <Route element={
         <>
           <RootLayout />

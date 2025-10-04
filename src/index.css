@@ -11,3 +11,7 @@ body{
         color: white;
 
 }
+
+a.active{
+    color: rgb(39, 194, 255);
+}
