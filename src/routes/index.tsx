@@ -9,6 +9,8 @@ import Products from "../pages/ProductsPage";
 import RootLayout from "../pages/Layout";
 import QuickStartPage from "../pages/learn";
 import LearnLayout from "../pages/learn/LearnLayout";
+import ThinkingInReact from "../pages/learn/ThinkingInReact";
+import Installiton from "../pages/learn/Installiton";
 
 const router = createBrowserRouter(
    createRoutesFromElements(
@@ -29,7 +31,9 @@ const router = createBrowserRouter(
 
       {/* Learn Layout */}
       <Route element={<LearnLayout />} path="/learn">
-           <Route index element={<QuickStartPage/>} path="Contact" />,
+           <Route index element={<QuickStartPage/>} path="quickstart" />,
+           <Route  element={<ThinkingInReact/>} path="thinking" />,
+           <Route  element={<Installiton/>} path="installition" />,
       </Route>
 </>
 ));

@@ -1,10 +1,14 @@
+import { Outlet } from "react-router-dom";
+import LearnAside from "../../components/LearnAside";
 import NavBar from "../../components/NavBar";
 
 const LearnLayout = () => {
     return (
         <>
         <NavBar/>
-        <h1>Learn Layout</h1>
+        <LearnAside/>
+        <Outlet />
+
         </>
     );
 }
