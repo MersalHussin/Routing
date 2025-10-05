@@ -3,15 +3,25 @@
 *{
     box-sizing: border-box;
     font-family: poppins, sans-serif;
-    padding: 0;
-    margin: 0;
+
 }
 body{
-        background-color: rgb(54, 54, 54);
+        background-color: #23272f;
         color: white;
 
 }
 
+a{
+    display: block;
+}
 a.active{
-    color: rgb(39, 194, 255);
+    color: #27c2ff;
+    background-color: #27c2ff2a;
+}
+div{
+    text-align: center;
+}
+
+h3, h1, h2, h4, h5, h6{
+        padding-top: 50px;
 }

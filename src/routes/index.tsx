@@ -1,6 +1,7 @@
 import {
   createBrowserRouter,
   createRoutesFromElements,
+  Navigate,
   Route,
 } from "react-router-dom";
 import HomePage from "../pages/HomePage";
@@ -11,6 +12,11 @@ import QuickStartPage from "../pages/learn";
 import LearnLayout from "../pages/learn/LearnLayout";
 import ThinkingInReact from "../pages/learn/ThinkingInReact";
 import Installiton from "../pages/learn/Installiton";
+import Login from "../pages/Login";
+import Contribute from "../pages/Contribute";
+
+
+const isLoggedIn = false;
 
 const router = createBrowserRouter(
    createRoutesFromElements(
@@ -24,10 +30,13 @@ const router = createBrowserRouter(
       
           </> } path="/">
         <Route index element= {<HomePage/>} />,
-        <Route element={<Aboutus/>} path="about" />,
-        <Route element={<Products/>} path="products" />,
-        <Route element={<h1>Contact</h1>} path="Contact" />,
+        <Route element={<Aboutus/>} path="about"/>,
+        <Route element={<Products/>} path="products"/>,
+        <Route element={!isLoggedIn ? <Login/> : <Navigate to={"/contribute"}/>} path="login"/>,
+        <Route element={isLoggedIn ? <Contribute/> : <Navigate to={"/login"}/>} path="contribute"/>,
       </Route>
+
+
 
       {/* Learn Layout */}
       <Route element={<LearnLayout />} path="/learn">
