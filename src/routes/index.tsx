@@ -15,6 +15,7 @@ import Login from "../pages/Login";
 import Contribute from "../pages/Contribute";
 import PrtectedRoute from "../components/auth/PrtectedRoute";
 import ErrorRootHandler from "../components/errors/ErrorRootHandler";
+import PageNotFound from "../components/pageNotFound";
 
 const isLoggedIn = true;
 const userData = isLoggedIn
@@ -50,7 +51,7 @@ const router = createBrowserRouter(
             </PrtectedRoute>
           }
           path="contribute"
-           errorElement={<ErrorRootHandler/>}
+           errorElement={<ErrorRootHandler statusCode={404}/>}
         />
         ,
       </Route>
@@ -61,6 +62,10 @@ const router = createBrowserRouter(
         <Route element={<ThinkingInReact />} path="thinking" />,
         <Route element={<Installiton />} path="installition" />,
       </Route>
+
+
+      {/* Route Not Found */}
+      <Route path="*"  element={<PageNotFound />}/>
     </>
   )
 );
