@@ -14,7 +14,7 @@ import { Navigate } from "react-router-dom";
 
             //** TODO Replace && State
            if(!isAllowd){
-            return <Navigate to={redireactPath} state={data}/>
+            return <Navigate  to={redireactPath} state={data}/>
            }else{
             return children
            }
